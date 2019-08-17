@@ -49,7 +49,12 @@
 
             if (filenameSplit.length === 1) {
                 loadScriptDirectoryRecursive(readDirectory + filePath + '/', includeDirectory + filePath + '/');
-            } else if (filenameSplit.length > 1) {
+            }
+        }
+        for (let filePath of allFiles) {
+            let filenameSplit = filePath.split(".");
+
+            if (filenameSplit.length > 1) {
                 let fileType = filenameSplit[filenameSplit.length-1];
                 if (fileType === 'js') {
                     $.ajax(includeDirectory+filePath, {
